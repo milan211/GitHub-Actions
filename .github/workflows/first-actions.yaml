@@ -31,7 +31,6 @@ jobs:
         pip install pytest
         echo "${{ inputs.x }}"
         echo "This is big secret: ${{ secrets.MY_SECRET }}"
-        ${{ secrets.MY_SECRET }}
 
     - name: Run tests
       run: |
