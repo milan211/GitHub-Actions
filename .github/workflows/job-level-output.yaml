@@ -26,5 +26,4 @@ jobs:
 
     steps:
       - name: access output
-        run: |
-          echo " The value of output name from job1 is ${{ needs.job1.outputs.job1_name }}"
+        run: echo " The value of output name from job1 is ${{ needs.job1.outputs.job1_name }}"
