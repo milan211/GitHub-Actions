@@ -1,0 +1,32 @@
+name: Step Output
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: set output
+        id: set-output
+        shell: bash
+        run: |
+          echo "age=23" >> $GITHUB_OUTPUT
+          echo "name=John" >> $GITHUB_OUTPUT
+          echo "location=USA" >> $GITHUB_OUTPUT
+
+      - name: set output 2
+        id: set-output2
+        shell: bash
+        run: |
+          echo "salary=20000" >> $GITHUB_OUTPUT
+
+      - name: access output
+        run: |
+          echo " The value of output name is ${{ steps.set-output.outputs.name }}"
+          echo " The value of output location is ${{ steps.set-output.outputs.location }}"
+          echo " The value of output age is ${{ steps.set-output.outputs.age }}"
+          echo " The value of output salary is ${{ steps.set-output2.outputs.salary }}"
